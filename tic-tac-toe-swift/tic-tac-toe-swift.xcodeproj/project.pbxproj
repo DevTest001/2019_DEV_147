@@ -56,6 +56,7 @@
 		13AD0985224666A400A63C15 /* tic-tac-toe-swift */ = {
 			isa = PBXGroup;
 			children = (
+				13AD09B92246B72100A63C15 /* Model */,
 				13AD09B422466ABA00A63C15 /* App */,
 				13AD09B622466B4400A63C15 /* Views */,
 				13AD09B522466AC600A63C15 /* Ressources */,
@@ -68,7 +69,6 @@
 			children = (
 				13AD0986224666A400A63C15 /* AppDelegate.swift */,
 				13AD0988224666A400A63C15 /* MainViewController.swift */,
-				13AD09B72246994800A63C15 /* GameButton.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -89,6 +89,14 @@
 				13AD098F224666A500A63C15 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		13AD09B92246B72100A63C15 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13AD09B72246994800A63C15 /* GameButton.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

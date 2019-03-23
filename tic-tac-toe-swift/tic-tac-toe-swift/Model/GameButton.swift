@@ -1,5 +1,5 @@
 //
-//  gameButton.swift
+//  GameButton.swift
 //  tic-tac-toe-swift
 //
 //  Created by Shaher Kassam on 23/03/2019.
@@ -19,8 +19,6 @@ class GameButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         self.gameState = .blank
         super.init(coder: aDecoder)
-        self.imageView?.contentMode = .scaleAspectFit
     }
-    
-    
+
 }
