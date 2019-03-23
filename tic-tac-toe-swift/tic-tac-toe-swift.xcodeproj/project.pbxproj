@@ -56,8 +56,8 @@
 		13AD0985224666A400A63C15 /* tic-tac-toe-swift */ = {
 			isa = PBXGroup;
 			children = (
-				13AD09B92246B72100A63C15 /* Model */,
 				13AD09B422466ABA00A63C15 /* App */,
+				13AD09B92246B72100A63C15 /* Utils */,
 				13AD09B622466B4400A63C15 /* Views */,
 				13AD09B522466AC600A63C15 /* Ressources */,
 			);
@@ -91,12 +91,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		13AD09B92246B72100A63C15 /* Model */ = {
+		13AD09B92246B72100A63C15 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				13AD09B72246994800A63C15 /* GameButton.swift */,
 			);
-			path = Model;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
