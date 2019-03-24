@@ -12,65 +12,83 @@ class MainViewController: UIViewController {
     
     //Outlets
     @IBOutlet var winnerLabel: UILabel!
+    @IBOutlet var resetButton: UIButton!
+    @IBOutlet var buttons: [UIButton]!
+    
     
     //Var
-    private var turn: Bool = true //Player X: true
     private let XImage = UIImage(named: "X")
     private let OImage = UIImage(named: "O")
-    private var gridX: [Bool] = Array(repeating: false, count: 9)
-    private var gridO: [Bool] = Array(repeating: false, count: 9)
     
+    var game = TicTacToe()
     
-    
+    //Override
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetButton.isHidden = true
     }
     
     //Action
     @IBAction func buttonTouched(_ sender: UIButton) {
-        buttonState(button: sender)
+        playerPushed(box: sender)
     }
     
-    //Function
-    func buttonState(button: UIButton) {
+    @IBAction func reset(_ sender: Any) {
+        game.reset()
+        resetView()
+    }
+    
+    //Functions
+    func playerPushed(box: UIButton) {
         
-        if !gridX[button.tag], !gridO[button.tag] {  //Verify if the button was never played
-            if turn {   //Player X
-                button.setBackgroundImage(XImage, for: .normal)
-                gridX[button.tag] = true
-                victoryCheck(grid: gridX)
-            } else { //Player O
-                button.setBackgroundImage(OImage, for: .normal)
-                gridO[button.tag] = true
-                victoryCheck(grid: gridO)
-            }
-
-            turn = !turn   //Next turn
+        if !game.isBoxPlayed(for: box.tag) {
+            setImage(for: box)
+            game.checkBox(for: box.tag)
+            nextMove()
         }
     }
     
+    func nextMove() {
+        if game.isVictorious(for: game.turn) {
+            game.printVictory()
+            self.printVictory()
+            self.stopGame()
+            self.showResetButton()
+        } else {
+            game.changeTurn()
+        }
+    }
+   
+    func stopGame() {
+        for button in buttons {
+            button.isEnabled = false }
+    }
     
-    func  victoryCheck(grid: [Bool]) {
-        
-        let winningCombinations = [
-            [0, 1, 2], [3, 4, 5], [6, 7, 8], //horizontal
-            [0, 3, 6], [1, 4, 7], [2, 5, 8], //vertical
-            [0, 4, 8], [2, 4, 6]] //diagonals
-        
-        
-        for combination in winningCombinations {
-            gridCheckCombination(for: grid, with: combination)
+    func showResetButton() {
+        resetButton.isHidden = false
+    }
+    
+    func printVictory() {
+        winnerLabel.text = "Winner: \(game.turn ? "X":"O")"
+    }
+    
+    func setImage(for button: UIButton) {
+        if game.turn { //Player X
+            button.setBackgroundImage(XImage, for: .normal)
+        } else { //Player O
+            button.setBackgroundImage(OImage, for: .normal)
         }
     }
     
-    
-    func gridCheckCombination(for grid: [Bool], with combination: [Int] ) {
-        guard combination.count == 3 else {return}
-        
-        if grid[combination[0]], grid [combination[1]], grid[combination[2]] {print("Win:", turn)}
+    func resetView() {
+        //title
+        winnerLabel.text = "Winner: ?"
+        //buttons
+        for button in buttons {
+            button.setBackgroundImage(nil, for: .normal)
+            button.isEnabled = true
+        }
     }
-    
-    
 }
 
 
