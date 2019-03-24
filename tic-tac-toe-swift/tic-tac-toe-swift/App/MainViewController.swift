@@ -5,6 +5,7 @@
 //  Created by Shaher Kassam on 23/03/2019.
 //  Copyright © 2019 Shaher. All rights reserved.
 //
+// Description: 3 by 3 View
 
 import UIKit
 
@@ -15,12 +16,10 @@ class MainViewController: UIViewController {
     @IBOutlet var resetButton: UIButton!
     @IBOutlet var buttons: [UIButton]!
     
-    
-    //Var
+    //Vars
     private let XImage = UIImage(named: "X")
     private let OImage = UIImage(named: "O")
-    
-    var game = TicTacToe()
+    private var game = TicTacToe()
     
     //Override
     override func viewDidLoad() {
@@ -28,29 +27,28 @@ class MainViewController: UIViewController {
         resetButton.isHidden = true
     }
     
-    //Action
+    //Actions
     @IBAction func buttonTouched(_ sender: UIButton) {
-        playerPushed(box: sender)
+        self.playerCheck(box: sender)
     }
     
     @IBAction func reset(_ sender: Any) {
         game.reset()
-        resetView()
+        self.resetView()
     }
     
     //Functions
-    func playerPushed(box: UIButton) {
+    func playerCheck(box: UIButton) {
         
-        if !game.isBoxPlayed(for: box.tag) {
-            setImage(for: box)
+        if !game.isBoxChecked(for: box.tag) {
+            self.setImage(for: box)
             game.checkBox(for: box.tag)
-            nextMove()
+            self.nextMove()
         }
     }
     
     func nextMove() {
         if game.isVictorious(for: game.turn) {
-            game.printVictory()
             self.printVictory()
             self.stopGame()
             self.showResetButton()
@@ -69,7 +67,7 @@ class MainViewController: UIViewController {
     }
     
     func printVictory() {
-        winnerLabel.text = "Winner: \(game.turn ? "X":"O")"
+        winnerLabel.text = game.printVictory()
     }
     
     func setImage(for button: UIButton) {

@@ -5,6 +5,8 @@
 //  Created by Shaher Kassam on 24/03/2019.
 //  Copyright © 2019 Shaher. All rights reserved.
 //
+// Description: 3 by 3 game
+// X player is first
 
 import UIKit
 
@@ -42,7 +44,7 @@ class TicTacToe {
     
     func changeTurn() { self.turn = !turn }
     
-    func printVictory() { print("Win:", turn ? "X": "O") }
+    func printVictory() -> String { return ("Winner: \(turn ? "X": "O")") }
    
     func reset() {
         x = Array(repeating: false, count: 9)
@@ -66,7 +68,7 @@ class TicTacToe {
         }
     }
     
-    func isBoxPlayed(for id: Int) -> Bool {
+    func isBoxChecked(for id: Int) -> Bool {
         return (x[id] || o[id]) ? true : false
     }
     
