@@ -3,9 +3,12 @@
 ## Functions
 
 - Game rules encapsulated
+- Simple Unit and UITEsts
 - Small Animations
 - Haptic
 - No multitouch
+- Portrait Mode
+
 
 
 ## Rules
