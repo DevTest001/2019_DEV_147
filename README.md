@@ -1,5 +1,13 @@
 # Tic Tac Toe Swift
 
+## Functions
+
+- Game rules encapsulated
+- Small Animations
+- Haptic
+- No multitouch
+
+
 ## Rules
 
 - X always goes first.
@@ -33,4 +41,11 @@ $ open "tic-tac-toe-swift.xcodeproj"
 * Xcode 9
 * iOS 10+
 * Swift 4
+
+## Improvements
+
+- Score
+- Build with spriteKit
+- Add AI with MLKit
+- Colors and animations
 
