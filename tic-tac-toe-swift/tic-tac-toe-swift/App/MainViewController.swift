@@ -8,7 +8,7 @@
 // Description: 3 by 3 View
 
 import UIKit
- import AVFoundation
+import AVFoundation
 
 class MainViewController: UIViewController {
     
@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
     private let XImage = UIImage(named: "X")
     private let OImage = UIImage(named: "O")
     var player: AVAudioPlayer?
-
+    
     private var game = TicTacToe()
     
     //Override
@@ -68,7 +68,8 @@ class MainViewController: UIViewController {
     
     func stopGame() {
         for button in buttons {
-            button.isEnabled = false }
+            button.isEnabled = false
+        }
     }
     
     func showResetButton() {
@@ -91,6 +92,7 @@ class MainViewController: UIViewController {
         //Exclusive
         for button in buttons {
             button.isExclusiveTouch = true
+            button.accessibilityLabel = button.tag.description //For testing purposes
         }
     }
     
