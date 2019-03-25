@@ -125,7 +125,6 @@ class MainViewController: UIViewController {
         })
     }
     
-    
     func playSound() {
         guard let url = Bundle.main.url(forResource: "OMG", withExtension: "mp3") else { return }
         
@@ -142,8 +141,6 @@ class MainViewController: UIViewController {
             //TODO: error management goes here
         }
     }
-    
-    
     
     func resetView() {
         //title
