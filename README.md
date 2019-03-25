@@ -4,8 +4,11 @@
 
 - Game rules encapsulated
 - Simple Unit and UITEsts
+- Adaptive Layout
+- StoryBoard
 - Small Animations
 - Haptic
+- Sounds
 - No multitouch
 - Portrait Mode
 
