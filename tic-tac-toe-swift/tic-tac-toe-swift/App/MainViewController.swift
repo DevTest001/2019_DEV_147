@@ -109,7 +109,7 @@ class MainViewController: UIViewController {
         UIView.animate(withDuration: 2, delay: 0, options: .curveEaseOut, animations: {
             self.winnerLabel.transform = CGAffineTransform(rotationAngle: (.pi))
         }, completion: { finished in
-            print("Rotate title")
+            //log if needed
         })
     }
     
@@ -117,7 +117,7 @@ class MainViewController: UIViewController {
         UIView.animate(withDuration: 2, delay: 0, options: .curveEaseOut, animations: {
             self.winnerLabel.transform = CGAffineTransform(rotationAngle: (2 * .pi))
         }, completion: { finished in
-            print("Rotate title back")
+            //log if needed
         })
     }
     
