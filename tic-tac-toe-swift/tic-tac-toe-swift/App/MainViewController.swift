@@ -11,12 +11,13 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    //MARK: - Vars
     //Outlets
     @IBOutlet var winnerLabel: UILabel!
     @IBOutlet var resetButton: UIButton!
     @IBOutlet var buttons: [UIButton]!
     
-    //Vars
+    //privatess
     private let XImage = UIImage(named: "X")
     private let OImage = UIImage(named: "O")
     private var game = TicTacToe()
@@ -29,8 +30,9 @@ class MainViewController: UIViewController {
         self.exclusiveButtons()
     }
     
-    //Actions
+    //MARK: - Actions
     @IBAction func buttonTouched(_ sender: UIButton) {
+        self.hapticWhenPress()
         self.playerCheck(box: sender)
     }
     
@@ -39,7 +41,7 @@ class MainViewController: UIViewController {
         self.resetView()
     }
     
-    //Functions
+    //MARK: - Functions
     func playerCheck(box: UIButton) {
         
         if !game.isBoxChecked(for: box.tag) {
@@ -77,7 +79,6 @@ class MainViewController: UIViewController {
         //anime
         self.rotateTitleUpSideDown()
         self.rotateBackTitle()
-        
     }
     
     func printDraw() {
@@ -99,6 +100,11 @@ class MainViewController: UIViewController {
         }
     }
     
+    func hapticWhenPress() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+    
     func rotateTitleUpSideDown() {
         UIView.animate(withDuration: 2, delay: 0, options: .curveEaseOut, animations: {
             self.winnerLabel.transform = CGAffineTransform(rotationAngle: (.pi))
@@ -118,7 +124,6 @@ class MainViewController: UIViewController {
     func resetView() {
         //title
         winnerLabel.text = "Winner: ?"
-        
         
         //game buttons
         for button in buttons {
