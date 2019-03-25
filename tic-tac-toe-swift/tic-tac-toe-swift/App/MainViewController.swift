@@ -24,7 +24,12 @@ class MainViewController: UIViewController {
     //Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetButton.isHidden = true
+        
+        
+        //Exclusive
+        for button in buttons {
+            button.isExclusiveTouch = true
+        }
     }
     
     //Actions
@@ -49,8 +54,8 @@ class MainViewController: UIViewController {
     
     func nextMove() {
         if game.isVictorious(for: game.turn) {
-            self.printVictory()
             self.stopGame()
+            self.printVictory()
             self.showResetButton()
         } else if game.count == 8 {
             self.printDraw()
@@ -89,11 +94,12 @@ class MainViewController: UIViewController {
     func resetView() {
         //title
         winnerLabel.text = "Winner: ?"
-        //buttons
+        //game buttons
         for button in buttons {
             button.setBackgroundImage(nil, for: .normal)
             button.isEnabled = true
         }
+        resetButton.isHidden = true
     }
 }
 
