@@ -20,7 +20,7 @@
 
 1. Clone the repository
 ```bash
-$ git clone https://skassam@bitbucket.org/skassam/2019_dev_147.git
+$ git clone https:// ... /2019_dev_147.git
 ```
 2. Open the workspace in Xcode
 ```bash
