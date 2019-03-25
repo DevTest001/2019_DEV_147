@@ -2,8 +2,8 @@
 //  tictactoeUITests.swift
 //  tictactoeUITests
 //
-//  Created by Shaher Kassam on 25/03/2019.
-//  Copyright © 2019 Shaher. All rights reserved.
+//  Created by S on 25/03/2019.
+//  Copyright © 2019 S. All rights reserved.
 //
 
 import XCTest
