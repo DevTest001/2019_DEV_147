@@ -20,11 +20,11 @@
 
 1. Clone the repository
 ```bash
-$ git clone https://gi .git
+$ git clone https://skassam@bitbucket.org/skassam/2019_dev_147.git
 ```
 2. Open the workspace in Xcode
 ```bash
-$ open "SwiftWeather.xcworkspace"
+$ open "tic-tac-toe-swift.xcodeproj"
 ```
 3. Compile and run app in the simulator
 
