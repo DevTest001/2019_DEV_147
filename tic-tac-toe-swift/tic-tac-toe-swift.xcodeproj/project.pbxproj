@@ -67,6 +67,14 @@
 			path = tictactoeTests;
 			sourceTree = "<group>";
 		};
+		13A65A652248F4F20045E602 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				13AD09BA2248189B00A63C15 /* TicTacToe.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		13AD097A224666A400A63C15 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +96,7 @@
 		13AD0985224666A400A63C15 /* tic-tac-toe-swift */ = {
 			isa = PBXGroup;
 			children = (
+				13A65A652248F4F20045E602 /* Game */,
 				13AD09B422466ABA00A63C15 /* App */,
 				13AD09B622466B4400A63C15 /* Views */,
 				13AD09B522466AC600A63C15 /* Ressources */,
@@ -100,7 +109,6 @@
 			children = (
 				13AD0986224666A400A63C15 /* AppDelegate.swift */,
 				13AD0988224666A400A63C15 /* MainViewController.swift */,
-				13AD09BA2248189B00A63C15 /* TicTacToe.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
