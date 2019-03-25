@@ -54,4 +54,5 @@ $ open "tic-tac-toe-swift.xcodeproj"
 - Build with spriteKit
 - Add AI with MLKit
 - Colors and animations
+- Add all tests cases
 
