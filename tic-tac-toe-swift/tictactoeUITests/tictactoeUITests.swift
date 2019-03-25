@@ -13,8 +13,8 @@ class tictactoeUITests: XCTestCase {
     var app = XCUIApplication()
     
     
-    //MARK: - Test UI Test
-    func testDisablingButtonOnVIctory() {
+    //MARK: -  UI Test
+    func testDisablingButtonOnVictory() {
         //given
         app.launch()
         //when
@@ -25,7 +25,14 @@ class tictactoeUITests: XCTestCase {
         app.buttons["6"].tap() //X
         //then
         XCTAssertEqual(false, app.buttons["8"].isEnabled)
-        
+    }
+    
+    func testBeginning() {
+        //given
+        //when
+        app.launch()
+        //then
+        XCTAssertEqual(true, app.buttons["0"].isEnabled)
     }
     
 }
