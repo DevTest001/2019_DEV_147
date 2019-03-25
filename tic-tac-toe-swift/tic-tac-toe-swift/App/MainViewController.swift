@@ -26,10 +26,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         
-        //Exclusive
-        for button in buttons {
-            button.isExclusiveTouch = true
-        }
+        self.exclusiveButtons()
     }
     
     //Actions
@@ -65,7 +62,7 @@ class MainViewController: UIViewController {
             game.changeTurn()
         }
     }
-   
+    
     func stopGame() {
         for button in buttons {
             button.isEnabled = false }
@@ -77,10 +74,21 @@ class MainViewController: UIViewController {
     
     func printVictory() {
         winnerLabel.text = game.printVictory()
+        //anime
+        self.rotateTitleUpSideDown()
+        self.rotateBackTitle()
+        
     }
     
     func printDraw() {
         winnerLabel.text = "Draw !"
+    }
+    
+    func exclusiveButtons() {
+        //Exclusive
+        for button in buttons {
+            button.isExclusiveTouch = true
+        }
     }
     
     func setImage(for button: UIButton) {
@@ -91,9 +99,27 @@ class MainViewController: UIViewController {
         }
     }
     
+    func rotateTitleUpSideDown() {
+        UIView.animate(withDuration: 2, delay: 0, options: .curveEaseOut, animations: {
+            self.winnerLabel.transform = CGAffineTransform(rotationAngle: (.pi))
+        }, completion: { finished in
+            print("Rotate title")
+        })
+    }
+    
+    func rotateBackTitle() {
+        UIView.animate(withDuration: 2, delay: 0, options: .curveEaseOut, animations: {
+            self.winnerLabel.transform = CGAffineTransform(rotationAngle: (2 * .pi))
+        }, completion: { finished in
+            print("Rotate title back")
+        })
+    }
+    
     func resetView() {
         //title
         winnerLabel.text = "Winner: ?"
+        
+        
         //game buttons
         for button in buttons {
             button.setBackgroundImage(nil, for: .normal)
