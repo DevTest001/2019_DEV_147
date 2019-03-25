@@ -2,8 +2,8 @@
 //  MainViewController.swift
 //  tic-tac-toe-swift
 //
-//  Created by Shaher Kassam on 23/03/2019.
-//  Copyright © 2019 Shaher. All rights reserved.
+//  Created by S on 23/03/2019.
+//  Copyright © 2019 S. All rights reserved.
 //
 // Description: 3 by 3 View
 
@@ -28,8 +28,6 @@ class MainViewController: UIViewController {
     //Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         self.exclusiveButtons()
     }
     
