@@ -52,6 +52,10 @@ class MainViewController: UIViewController {
             self.printVictory()
             self.stopGame()
             self.showResetButton()
+        } else if game.count == 8 {
+            self.printDraw()
+            self.stopGame()
+            self.showResetButton()
         } else {
             game.changeTurn()
         }
@@ -68,6 +72,10 @@ class MainViewController: UIViewController {
     
     func printVictory() {
         winnerLabel.text = game.printVictory()
+    }
+    
+    func printDraw() {
+        winnerLabel.text = "Draw !"
     }
     
     func setImage(for button: UIButton) {

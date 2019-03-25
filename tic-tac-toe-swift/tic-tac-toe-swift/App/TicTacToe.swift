@@ -13,6 +13,7 @@ import UIKit
 class TicTacToe {
     
     var turn: Bool = true
+    var count: Int = 0
     
     private var x: [Bool] = Array(repeating: false, count: 9)
     private var o: [Bool] = Array(repeating: false, count: 9)
@@ -42,7 +43,9 @@ class TicTacToe {
         }
     }
     
-    func changeTurn() { self.turn = !turn }
+    func changeTurn() {
+        self.count += 1
+        self.turn = !turn }
     
     func printVictory() -> String { return ("Winner: \(turn ? "X": "O")") }
    
@@ -50,6 +53,7 @@ class TicTacToe {
         x = Array(repeating: false, count: 9)
         o = Array(repeating: false, count: 9)
         turn = true
+        count = 0
     }
     
     private func isVictorious(for grid: [Bool], with combination: [Int]) -> Bool{
