@@ -8,6 +8,7 @@
 // Description: 3 by 3 View
 
 import UIKit
+ import AVFoundation
 
 class MainViewController: UIViewController {
     
@@ -20,6 +21,8 @@ class MainViewController: UIViewController {
     //privatess
     private let XImage = UIImage(named: "X")
     private let OImage = UIImage(named: "O")
+    var player: AVAudioPlayer?
+
     private var game = TicTacToe()
     
     //Override
@@ -79,6 +82,7 @@ class MainViewController: UIViewController {
         //anime
         self.rotateTitleUpSideDown()
         self.rotateBackTitle()
+        self.playSound()
     }
     
     func printDraw() {
@@ -120,6 +124,26 @@ class MainViewController: UIViewController {
             //log if needed
         })
     }
+    
+    
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "OMG", withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            guard let player = player else { return }
+            player.play()
+            
+        } catch {
+            //print(error.localizedDescription)
+            //TODO: error management goes here
+        }
+    }
+    
+    
     
     func resetView() {
         //title
